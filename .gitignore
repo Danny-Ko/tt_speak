@@ -1,0 +1,60 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Audio/Temp files (per project rules)
+/app/data/
+temp/
+*.ogg
+*.wav
+*.mp3
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# FastAPI/Pytest
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# Docker
+.dockerignore
+
+# Models (if downloading large model files)
+*.pt
+*.pth
+*.onnx
+*.ct2/
