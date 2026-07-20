@@ -37,8 +37,8 @@ class TTSRequest(BaseModel):
     @field_validator("text")
     @classmethod
     def text_length_ok(cls, v: str) -> str:
-        if len(v) > 500:
-            raise ValueError("Text too long (max 500 chars)")
+        if len(v) > 1000:
+            raise ValueError("Text too long (max 1000 chars)")
         return v
 
 

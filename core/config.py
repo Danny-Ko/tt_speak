@@ -16,8 +16,8 @@ class Settings(BaseSettings):
     OUTPUT_FORMAT: str = "ogg"
 
     # Limits
-    MAX_AUDIO_SECONDS: int = 15
-    MAX_TEXT_LENGTH: int = 500
+    MAX_AUDIO_SECONDS: int = 60
+    MAX_TEXT_LENGTH: int = 1000
 
     # Paths
     # Use local ./data directory for development, /app/data for Docker
