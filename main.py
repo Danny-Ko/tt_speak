@@ -38,7 +38,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(
     title="Cantonese Voice API",
     description="Speech-to-Text and Text-to-Speech for Cantonese chat room messages. "
-                "Optimized for short audio (max 60 seconds) with Traditional Chinese output.",
+                "Optimized for short audio (max 120 seconds) with Traditional Chinese output.",
     version="1.0.0",
     lifespan=lifespan
 )
@@ -116,14 +116,14 @@ async def health_check():
 )
 async def speech_to_text_endpoint(
     background_tasks: BackgroundTasks,
-    audio: UploadFile = File(..., description="Audio file (OGG/MP3/WAV, max 60 seconds)")
+    audio: UploadFile = File(..., description="Audio file (OGG/MP3/WAV, max 120 seconds)")
 ):
     """
     Convert Cantonese speech to Traditional Chinese text.
 
     - **audio**: Audio file upload (any format supported by FFmpeg)
-    - Max duration: 60 seconds
-    - Output: Traditional Chinese text (max 1000 characters)
+    - Max duration: 120 seconds
+    - Output: Traditional Chinese text (max 1500 characters)
     """
     temp_audio: Optional[str] = None
     temp_ogg: Optional[str] = None
@@ -195,7 +195,7 @@ async def text_to_speech_endpoint(
     """
     Convert Traditional Chinese text to Cantonese speech (OGG/Opus format).
 
-    - **text**: Text to convert to speech (max 1000 characters)
+    - **text**: Text to convert to speech (max 1500 characters)
     - **voice**: Optional voice name (default: zh-HK-HiuMaanNeural)
     - **rate**: Optional speech rate (e.g., "-10%", "+20%")
     - Returns: OGG audio file (Opus codec)

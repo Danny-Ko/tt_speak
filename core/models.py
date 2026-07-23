@@ -2,6 +2,10 @@ import re
 from pydantic import BaseModel, field_validator
 from typing import Optional
 
+from core.config import get_settings
+
+_settings = get_settings()
+
 
 class TTSRequest(BaseModel):
     text: str
@@ -37,8 +41,8 @@ class TTSRequest(BaseModel):
     @field_validator("text")
     @classmethod
     def text_length_ok(cls, v: str) -> str:
-        if len(v) > 1000:
-            raise ValueError("Text too long (max 1000 chars)")
+        if len(v) > _settings.MAX_TEXT_LENGTH:
+            raise ValueError(f"Text too long (max {_settings.MAX_TEXT_LENGTH} chars)")
         return v
 
 
